@@ -1,0 +1,135 @@
+/* html {
+  font-size: 10px;
+  background: url(/background/cave.jpg) bottom center;
+  background-size: cover;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+} */
+
+i.x2 {
+  font-size: 120%;
+}
+
+.im {
+  text-shadow: 3px 3px darkslategray ;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.grid-container {
+  display: grid;
+  width: 100vw; 
+  height: 100vh; 
+  grid-template-columns: 1.9fr 0.4fr;
+  grid-template-rows: 1.8fr 0.4fr;
+  grid-template-areas: "grid-video grid-sidebar" "grid-controller grid-social";
+}
+
+.grid-video {
+  grid-area: grid-video;
+  background-color: yellow;
+  border: 2px black solid;
+}
+
+.grid-controller {
+  grid-area: grid-controller;
+  background-color: blue;
+  border: 2px black solid;
+}
+
+.grid-sidebar {
+  background-color: purple;
+  border: 2px black solid;
+
+  grid-area: grid-sidebar;
+}
+
+.grid-social {
+  background-color: orange;
+  border: 2px black solid;
+
+  grid-area: grid-social;
+}
+
+/* flex-bottom - action bar */
+.keys {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.4rem solid #ffc600;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  /* padding: 1rem 0.5rem; */
+  transition: all 0.07s ease;
+  width: 12rem;
+  height: 12rem;
+  /* width: 12vh; */
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 0.5rem black;
+}
+
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  flex: 2;
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc600;
+}
+
+.support-text {
+  font-size: 1.2rem;
+}
+
+/* animation to rotate text  */
+.rotate {
+  color: green;
+  animation: rotate-text 10s linear;
+  animation-iteration-count: infinite;
+  font-size: 90%;
+}
+
+@keyframes rotate-text {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-359deg)}
+}
+
+.set-activate {
+  color: green
+}
