@@ -1,20 +1,14 @@
-# RPG smashing sound game
+# Youtube Controller
+https://tutorialzine.com/2015/08/how-to-control-youtubes-video-player-with-javascript
 
+https://developers.google.com/youtube/iframe_api_reference
 
 ## todo list
-[] - add monster health
-[] - add human health
-[] - add timed buttons, which decrease in time before reactivate
-[] - add floating text on attack
-[] - add clicking buttons
-[] - add music
-[] - Add fun messages every few seconds in the 'message log'.
-[] - 
+[] - play button work
+[] - make jump work
+[]
 
-    <audio data-key="32" src="sounds/sword-strike.wav"></audio>
-    <audio data-key="219" src="sounds/sword-double-strike2.wav"></audio>
-    <audio data-key="221" src="sounds/sword-downstrike.wav"></audio>
-    <audio data-key="65" src="sounds/sword-shield.wav"></audio>
-    <audio data-key="78" src="sounds/sword-shieldbreak.wav"></audio>
-    <audio data-key="67" src="sounds/sword-sneakattack.wav"></audio>
-    <audio data-key="55" src="sounds/sword-threat.wav"></audio>
+
+[] - fix screen so it's responsive
+[] - fix favicon
+[] - fix title
