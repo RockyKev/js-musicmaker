@@ -1,3 +1,65 @@
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement("script");
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("zelda-video", {
+    height: document.querySelector(".grid-video").offsetHeight,
+    width: document.querySelector(".grid-video").offsetWidth,
+    videoId: "6zvIxD4FUTA",
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var done = false;
+
+function onPlayerStateChange(event) {
+  // if (event.data == YT.PlayerState.PLAYING && !done) {
+  //   setTimeout(stopVideo, 6000);
+  //   done = true;
+  // }
+}
+
+// function stopVideo() {
+//   player.stopVideo();
+// }
+
+const switchPlayAndPause = (icons, lowerText) => { 
+
+  if (icons.classList.contains("im-play")) {
+    icons.classList.add("im-pause");
+    icons.classList.remove("im-play");
+    lowerText.innerText = "Pause";
+    player.playVideo(); 
+
+  } else {
+    icons.classList.add("im-play");
+    icons.classList.remove("im-pause");
+    lowerText.innerText = "Play";
+    player.pauseVideo();
+
+  }
+
+}
+
 function videoController(divContent = null) {
   let dataKeyNumber, dataIcon, dataSound;
 
@@ -10,31 +72,17 @@ function videoController(divContent = null) {
     dataSound = divContent.querySelector(".sound");
   }
 
-  console.log(dataIcon);
-  console.log("-------");
-  console.log(dataSound);
 
   //if id matches the following, change the graphic
   switch (parseInt(dataKeyNumber)) {
     case 32: //space = change playing or pausnig
       console.log("playing or pausing");
-
-      if (dataIcon.classList.contains("im-play")) {
-        dataIcon.classList.add("im-pause");
-        dataIcon.classList.remove("im-play");
-        dataSound.innerText = "Pause";
-      } else {
-        dataIcon.classList.add("im-play");
-        dataIcon.classList.remove("im-pause");
-        dataSound.innerText = "Play";
-      }
-      break;
+      switchPlayAndPause(dataIcon, dataSound);
+    break;
 
     case 219: //[ key
       console.log("pushed 219");
-
       skipVideo10sec("back");
-
       break;
 
     case 221: // ] key
