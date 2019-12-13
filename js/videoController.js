@@ -1,51 +1,3 @@
-// Loads the IFrame Player API code asynchronously.
-var tag = document.createElement("script");
-let userCompleteStatus; //for checking status
-let player; //for video player
-
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName("script")[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player("zelda-video", {
-    height: document.querySelector(".grid-video").offsetHeight,
-    width: document.querySelector(".grid-video").offsetWidth,
-    videoId: "6zvIxD4FUTA",
-    events: {
-      onReady: onPlayerReady
-    }
-  });
-}
-
-// The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-  event.target.playVideo();
-
-  //check on load, if the complete button is on or not.
-  if (!localStorage.getItem("userComplete")) {
-    userCompleteStatus = false;
-    localStorage.setItem("userComplete", false);
-    console.log("SET the local storage: " + userCompleteStatus);
-
-    //leave button alone
-  } else {
-    userCompleteStatus = localStorage.getItem("userComplete");
-    console.log("got the local storage: " + userCompleteStatus);
-
-    //change button to complete
-
-    const key = document.querySelector(`.key[data-key="68"]`);
-    const icons = key.querySelector("kbd").querySelector("i");
-    const lowerText = key.querySelector(".sound");
-
-    console.log(key);
-    icons.classList.add("im-star", "set-activate");
-    icons.classList.remove("im-star-o");
-    lowerText.innerText = "COMPLETE!";
-  }
-}
-
 const switchPlayAndPause = (icons, lowerText) => {
   if (icons.classList.contains("im-play")) {
     icons.classList.add("im-pause");
@@ -95,14 +47,12 @@ const changeVideoMuteUnmute = (icons, lowerText) => {
     icons.classList.add("im-volume");
     icons.classList.remove("im-volume-off");
     lowerText.innerText = "Unmute";
-    console.log("unmute");
-    player.unMute();
-  } else {
-    icons.classList.add("im-volume-off");
-    icons.classList.remove("im-volume");
-    lowerText.innerText = "Mute";
-    console.log("mute");
     player.mute();
+  } else {
+    icons.classList.add("im-volume");
+    icons.classList.remove("im-volume-off");
+    lowerText.innerText = "Mute";
+    player.unMute();
   }
 };
 
@@ -158,7 +108,7 @@ const saveCompletionStatus = (icons, lowerText) => {
   }
 };
 
-function videoController(divContent = null) {
+export default function videoController(divContent = null) {
   let dataKeyNumber, dataIcon, dataSound;
 
   //if blank == exit; else pass values
@@ -219,33 +169,3 @@ function videoController(divContent = null) {
       return;
   }
 }
-
-function playAudio(e) {
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-
-  //exit if not audio
-  if (!audio) return;
-
-  //activate custom feature depending on button
-  videoController(key);
-
-  //set it to start playing rom the beginning
-  audio.currentTime = 0;
-  audio.play();
-  key.classList.add("playing");
-}
-
-function removeTransition(e) {
-  if (e.propertyName !== "transform") {
-    return;
-  }
-
-  this.classList.remove("playing");
-}
-
-// passing the div elements into variables
-const keys = Array.from(document.querySelectorAll(".key"));
-keys.forEach(key => key.addEventListener("transitionend", removeTransition));
-
-window.addEventListener("keydown", playAudio);
