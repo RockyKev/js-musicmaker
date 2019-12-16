@@ -82,14 +82,14 @@ kbd {
 }
 
 .sound {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: #ffc600;
 }
 
 .support-text {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 /* animation to rotate text  */
