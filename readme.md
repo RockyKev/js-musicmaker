@@ -15,7 +15,9 @@ This is concept of a lesson page of a online course, one with additional feature
 
 ## Dependencies
 Materialize - https://materializecss.com/
+
 SweetAlert - https://sweetalert.js.org/
+
 Iconmonstr - https://iconmonstr.com/
 
 ## References
