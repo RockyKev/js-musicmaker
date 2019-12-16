@@ -13,6 +13,8 @@ html {
   font-family: sans-serif;
 } */
 
+
+
 i.x2 {
   font-size: 120%;
 }
@@ -39,8 +41,7 @@ i.x2 {
 
 .grid-video {
   grid-area: grid-video;
-  background-color: yellow;
-  border: 2px black solid;
+  background-color: lightskyblue;
 }
 
 .grid-controller {

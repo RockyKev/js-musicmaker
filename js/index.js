@@ -8,9 +8,11 @@ var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player("zelda-video", {
-    height: document.querySelector(".grid-video").offsetHeight,
-    width: document.querySelector(".grid-video").offsetWidth,
+  player = new YT.Player("youtube-video", {
+    // height: document.querySelector(".grid-video").offsetHeight /2,
+    // width: document.querySelector(".grid-video").offsetWidth /2,
+    height: 480, 
+    width: 640,
     videoId: "6zvIxD4FUTA",
     events: {
       onReady: onPlayerReady

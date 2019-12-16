@@ -1,24 +1,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Dungeon Warrior</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Video Play tester</title>
+    <link rel="stylesheet" href="css/center-style.css" />
+    <link rel="stylesheet" href="css/materialize.min.css" />
     <link rel="stylesheet" href="css/iconmonstr-iconic-font.min.css" />
   </head>
 
   <body>
-    <div class="grid-container">
-      <div class="grid-video">
-        <!-- <iframe
-          src="https://www.youtube.com/embed/6zvIxD4FUTA"
-          frameborder="0" width="100%" height="100%"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
-        <div id="zelda-video"></div>
+    <div class="container">
+      <!-- <div class="row grid-input">
+        <form class="s12 search-form center-align">
+          <input type="text" class="search" placeholder="Current URL" />
+        </form>
+      </div> -->
+
+
+      <div class="row" > <h2 class="center-align"> Video Content Tester </h2> </div>
+      <div class="row grid-video">
+        <div class="col s12 center-align">
+            <div id="youtube-video"></div>
+        </div>
       </div>
 
-      <div class="grid-controller">
+      <div class="row grid-controller">
         <div class="keys">
           <div data-key="32" class="key">
             <kbd> <i class="im im-pause x2"></i> </kbd>
@@ -65,13 +70,6 @@
         <!-- div keys -->
       </div>
 
-      <div class="grid-sidebar">
-        <p>Hello</p>
-      </div>
-
-      <div class="grid-social">FACEBOOK TWITTER</div>
-    </div>
-
     <audio data-key="32" src="sounds/musicnote4.wav"></audio>
     <audio data-key="219" src="sounds/musicnote8.wav"></audio>
     <audio data-key="221" src="sounds/musicnote9.wav"></audio>
@@ -81,9 +79,7 @@
     <audio data-key="68" src="sounds/musicnote11.wav"></audio>
   </body>
 
-  <script type="module" src="/js/pi-test.js"></script>
-
-  <script src="/js/pi-main.js"></script>
   <script src="/js/sweetalert.min.js"></script>
   <script src="/js/index.js"></script>
+  <script src="/js/materialize.min.js"></script>  
 </html>
